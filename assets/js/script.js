@@ -1,8 +1,10 @@
 let corps = document.getElementById('corps');
 const modal = document.querySelector('.modal')
 const close = document.querySelector('.close') ;
+const close2 = document.querySelector('.close2') ;
 const cartModal = document.getElementById('cartModal')
 const modalFooter = document.getElementById('modalFooter')
+const modal2 = document.querySelector('.modal2')
 let products =[]
 let arrayCart = []
 
@@ -104,11 +106,7 @@ let displayProducts = (products) => {
             trueName.price = products[addCart.id].price;
             arrayCart.push( trueName);
         })
-
     }  
-
-    
-
         //affichage modal
     let panier = document.getElementById('panier');
         panier.addEventListener('click', () => {
@@ -133,8 +131,7 @@ let displayProducts = (products) => {
                     cartElem.classList.add('objectCart');
                     cartElem.id = i;
                     cartModal.appendChild(cartElem);
-                    
-    
+
                     const cartElemPic = document.createElement('img');
                     cartElemPic.classList.add('imgCart');
                     cartElem.appendChild(cartElemPic);
@@ -157,7 +154,7 @@ let displayProducts = (products) => {
                     const removeItem = document.createElement('div');
                     removeItem.classList.add('removeItem');
                     cartElem.appendChild(removeItem);
-                    removeItem.innerHTML= 'X'
+                    removeItem.innerHTML= 'x'
     
                     const removeItemElem = document.querySelector('.delete')
                     removeItemElem.addEventListener('click', () => {
@@ -179,11 +176,7 @@ let displayProducts = (products) => {
                         }
                         
                     })
-                    
-                    
                 }
-                
-                
                     const totalPrice = document.createElement('div');
                     totalPrice.classList.add('total');
                     modalFooter.appendChild(totalPrice);
@@ -195,7 +188,7 @@ let displayProducts = (products) => {
 
         // fermeture modal
         close.addEventListener('click', () => {
-            modal.style.display='none'
+            modal.style.display='none';
         })
         window.onclick = function(event) {
             if (event.target == modal) {
@@ -204,8 +197,40 @@ let displayProducts = (products) => {
         }
 }
 
+let dropdown = document.getElementsByClassName("dropdown-btn");
+let i;
+
+for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+}
+
+
+
 async function fetchProducts(products) {
     const response = await fetch('assets/data/data.json')
     const data = await response.json()
     displayProducts(data.products)
 }
+
+let maleChoose = document.getElementById("maleChoose")
+
+let selectItem = (attribut) => {
+    for (let count = 0; count < data.products.length; count++) {
+        if (attribut[count].gender != "Male") {
+            console.log(notOK)
+        } else {
+            console.log(OK)
+        }
+}}
+
+maleChoose.addEventListener("click",()=> { 
+    selectItem(data.products);
+})

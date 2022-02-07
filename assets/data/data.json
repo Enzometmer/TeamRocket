@@ -35,7 +35,7 @@
         },
         {
             "id" : 4,
-            "name": "Jordan Air Jordan 1 x Dior",
+            "name": "Air Jordan 1 x Dior",
             "description_brand":"Jordan x Dior",
             "picture_path":"https://cdn-images.farfetch-contents.com/15/62/45/04/15624504_28291154_1000.jpg",
             "picture_hover_path":"https://cdn-images.farfetch-contents.com/15/62/45/04/15624504_28291155_1000.jpg",
@@ -200,7 +200,7 @@
         },
         {
             "id" : 19,
-            "name": "YEEZY Boost 350 V2 'MX Rock'",
+            "name": "YEEZY Boost 350 V2",
             "description_brand":"Adidas",
             "picture_path":"https://cdn-images.farfetch-contents.com/17/41/70/39/17417039_37328997_1000.jpg",
             "picture_hover_path":"https://cdn-images.farfetch-contents.com/17/41/70/39/17417039_37330744_1000.jpg",
