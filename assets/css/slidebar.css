@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a,
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    margin:0em;
+}
+
+/* Main content */
+.main {
+    margin-left: 200px;
+    /* Same as the width of the sidenav */
+    font-size: 20px;
+    /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    padding-left: 10px;
+}
+
+/* Optional: Style the caret down icon */
+/* voir le html pour insérer des icons*/
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* //////////////////////////////////////////////// */
+h4:hover { color:#FF3000; } 
+h3:hover { color:#FF3000; } 
+
+li {
+    list-style-type: none;
+    margin: 0em;
+    padding: 0em;
+    display: block;
+    width: 100%;
+    vertical-align: middle;
+    list-style-type: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+        &.open>a>i {
+            transform: rotate(90deg);
+        }
+}
+h4{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+h4,h3 {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+input {
+    font-family: 'Oswald', sans-serif;
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* LA BARRE DES PRIX  */
