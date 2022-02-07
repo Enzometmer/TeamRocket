@@ -1,0 +1,98 @@
+@font-face {
+    font-family: "futura";
+    src: url("/assets/Fonts/De-Futura.ttf");
+}
+html { 
+
+    height: 5000px;
+    
+}
+
+body {
+    font-family: 'Futura-Normal', arial;
+    
+}
+
+header { 
+    height: 50%;
+    background-color: #1B212D;
+    padding: 8em;
+}
+
+
+.navbar { 
+    background-color: #1B212D;
+    
+}
+
+
+.navbar-brand {
+    color:  #F9D6AE;
+    font-size: medium;
+}
+
+.nav-link { 
+    color: white;
+    font-size: medium
+    
+}
+
+.centered {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Futura-Normal', arial;
+
+}
+
+.dropdown-menu {
+    background-color: #1B212D;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.fa-heart {
+    color: #F14B2A; 
+}
+
+.fa-shopping-cart {
+    color: #F14B2A; 
+}
+
+.logo a:hover {
+
+    color:  #F9D6AE;
+
+}
+
+.dropdown a:hover { 
+    color:#F14B2A; background:none; 
+
+    
+}
+
+a {
+    
+    -o-transition:color .2s ease-out, background 1s ease-in;
+    -ms-transition:color .2s ease-out, background 1s ease-in;
+    -moz-transition:color .2s ease-out, background 1s ease-in;
+    -webkit-transition:color .2s ease-out, background 1s ease-in;
+    transition:color .2s ease-out, background 1s ease-in;
+}
+
+
+img {
+    border-radius: 5px;
+}
+
+
+.fa-bars {
+    color: #F14B2A;
+    font-size: 25px;
+}
+
+.visually-hidden {
+    color: black;
+}
