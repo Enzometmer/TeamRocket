@@ -1,0 +1,259 @@
+@font-face {
+    font-family: "futura";
+    src: url("/assets/Fonts/De-Futura.ttf");
+}
+html { 
+
+    height: 1920px;
+    
+}
+
+body {
+    font-family: 'Futura-Normal', arial;
+    
+}
+
+header { 
+    height: 50%;
+    background-color: #1B212D;
+    padding: 8em;
+}
+
+
+.navbar { 
+    background-color: #1B212D;
+    
+}
+
+
+.navbar-brand {
+    color:  #F9D6AE;
+    font-size: medium;
+}
+
+.nav-link { 
+    color: white;
+    font-size: medium
+    
+}
+
+.centered {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Futura-Normal', arial;
+
+}
+
+.dropdown-menu {
+    background-color: #1B212D;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.fa-heart {
+    color: #F14B2A; 
+}
+
+.fa-shopping-cart {
+    color: #F14B2A; 
+}
+
+.logo a:hover {
+
+    color:  #F9D6AE;
+
+}
+
+.dropdown a:hover { 
+    color:#F14B2A; background:none; 
+
+    
+}
+
+a {
+    
+    -o-transition:color .2s ease-out, background 1s ease-in;
+    -ms-transition:color .2s ease-out, background 1s ease-in;
+    -moz-transition:color b .2s ease-out, background 1s ease-in;
+    -webkit-transition:color .2s ease-out, background 1s ease-in;
+    transition:color .2s ease-out, background 1s ease-in;
+}
+
+
+img {
+    font-size: 1300px;
+    border-radius: 5px;
+}
+
+
+.fa-bars {
+    color: #F14B2A;
+    font-size: 25px;
+}
+
+.visually-hidden {
+    color: black;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+:root{
+    font-size: 14px;
+}
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nameProduct{
+    font-size: 1.8em;
+}
+
+.descProduct{
+    font-size: 1.5em;
+}
+
+.priceProduct{
+    font-size: 2em;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left: 20%;
+    background-color: rgb(255, 255, 255);
+}
+
+.imgProduct{
+    width: 20vw;
+}
+
+.buttonsDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.button{
+    padding-top: 20px;
+    color: black;
+    transition: 0.25s;
+    border: none;
+    font-size: 1.4em;
+    color: #ec6449;
+    font-weight: bold;
+    text-align: start;
+    background-color: #fff;
+}
+
+
+
+.button:hover{
+    color: #ec6449;
+    transform: scale(1.2);
+
+}
+.button:focus { outline: none; }
+
+.buttonModal{
+    margin-right: 1rem;
+    border-radius: 15px;
+    padding: 10px;
+    border: #F14B2A solid 2px;
+    background-color: #F14B2A;
+    color: black;
+    transition: 0.25s;
+}
+
+.buttonModal:hover{
+    background-color: #ec6449;
+    border: #ec6449 solid 2px;
+    color: black;
+    transform: scale(1.1);
+
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content{
+    margin: 5% auto;
+    border: 1px solid black;
+    width: 80%;
+    background: white;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.modal-header{
+    padding: 20px;
+    background-color: #ec6449;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.modal-body{
+    display: flex;
+    flex-wrap: wrap;
+    background: #ec6449;
+    overflow-y: initial;
+
+}
+.objectCart{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color:#fff;
+}
+
+.elementName{
+    font-size: 1.5rem;
+}
+
+.total{
+    font-size: 2em;
+}
+
+.elementPrice{
+    font-size: 2rem;
+}
+.imgCart{
+    width: 10%;
+    height: auto;
+}
+.modal-footer{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close{
+    color: black;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close:hover{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+
