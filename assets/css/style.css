@@ -146,7 +146,7 @@ img {
     transition: 0.25s;
     border: none;
     font-size: 1.4em;
-    color: #ec6449;
+    color: #2D333D;
     font-weight: bold;
     text-align: start;
     background-color: #fff;
@@ -155,7 +155,7 @@ img {
 
 
 .button:hover{
-    color: #ec6449;
+    color: #FB4B29;
     transform: scale(1.2);
 
 }
@@ -172,8 +172,8 @@ img {
 }
 
 .buttonModal:hover{
-    background-color: #ec6449;
-    border: #ec6449 solid 2px;
+    background-color: #FB4B29;
+    border: #FB4B29 solid 2px;
     color: black;
     transform: scale(1.1);
 
@@ -201,14 +201,14 @@ img {
 
 .modal-header{
     padding: 20px;
-    background-color: #ec6449;
+    background-color: #FB4B29;
     font-size: 1.5rem;
     text-align: center;
 }
 .modal-body{
     display: flex;
     flex-wrap: wrap;
-    background: #ec6449;
+    background: #FB4B29;
     overflow-y: initial;
 
 }
