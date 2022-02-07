@@ -14,9 +14,12 @@ body {
 }
 
 header { 
-
+    height: 30%;
     background-color: #1B212D;
-    padding: 4em;
+    padding-top: 3em;
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-bottom: 1em;
 }
 
 /* ------------------NAVBAR--------------------- */
@@ -99,4 +102,44 @@ a {
 .fa-bars {
     color: #F14B2A;
     font-size: 25px;
+}
+
+@media (min-width: 580px) {
+    .logo-responsive { 
+        display: none;
+    }
+}
+
+
+
+
+@media (max-width: 580px) {
+    header {
+    
+    padding-top: 2em;
+    padding-left: 0em;
+    padding-right: 0em;
+    padding-bottom: 0em;
+}
+.navbar-toggler {
+    padding-right: 100%;
+}
+.navbar-brand {
+    /* color:  #F9D6AE;
+    font-size: small;
+    padding-left: 50%;  */
+    display: none;
+}
+
+.logo-responsive { 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Futura-Normal', arial;
+    color:  #F9D6AE;
+    font-size: medium;
+    text-decoration:none;
+    
+}
+
 }
