@@ -1,20 +1,20 @@
 let corps = document.getElementById('corps');
 const modal = document.querySelector('.modal')
-const close = document.querySelector('.close') ;
-const close2 = document.querySelector('.close2') ;
+const close = document.querySelector('.close');
+const close2 = document.querySelector('.close2');
 const cartModal = document.getElementById('cartModal')
 const modalFooter = document.getElementById('modalFooter')
 const modal2 = document.querySelector('.modal2')
-let products =[]
+let products = []
 let arrayCart = []
 
 
 fetchProducts();
 
 
-let totalCalc = (arrayCart) =>{
+let totalCalc = (arrayCart) => {
     let total = 0;
-    for(i=0; i < arrayCart.length; i++){
+    for (i = 0; i < arrayCart.length; i++) {
         total += parseInt(arrayCart[i].price)
     }
     return total
@@ -23,7 +23,7 @@ let totalCalc = (arrayCart) =>{
 
 
 let displayProducts = (products) => {
-    for(let count =0; count < products.length ; count ++){
+    for (let count = 0; count < products.length; count++) {
         // création div produit dans le container
         const divProduct = document.createElement('div');
         corps.appendChild(divProduct);
@@ -42,10 +42,10 @@ let displayProducts = (products) => {
 
         //effet hover  sur l'image
 
-        imgProduct.addEventListener('mouseenter', ()=> {
+        imgProduct.addEventListener('mouseenter', () => {
             imgProduct.src = products[count].picture_hover_path;
         })
-        imgProduct.addEventListener('mouseout', ()=> {
+        imgProduct.addEventListener('mouseout', () => {
             imgProduct.src = products[count].picture_path;
         })
 
@@ -57,7 +57,7 @@ let displayProducts = (products) => {
 
 
         // création div nom dans div texte
-        
+
         const nameProduct = document.createElement('h2');
         textProduct.appendChild(nameProduct);
         nameProduct.classList.add('nameProduct');
@@ -98,35 +98,37 @@ let displayProducts = (products) => {
         addCart.innerHTML = 'Ajouter au panier'
 
         //création tableau panier
-        addCart.addEventListener('click', ()=> {
+        addCart.addEventListener('click', () => {
             const trueName = {};
             trueName.name = products[addCart.id].name;
             trueName.id = products[addCart.id].id;
             trueName.img = products[addCart.id].picture_path;
             trueName.price = products[addCart.id].price;
-            arrayCart.push( trueName);
+            arrayCart.push(trueName);
         })
-    }  
-        //affichage modal
-    let panier = document.getElementById('panier');
-        panier.addEventListener('click', () => {
-            if(arrayCart.length==0){
-                cartModal.innerHTML='Votre panier est vide.'
+    }
+    //affichage modal
+    let panier = document.querySelectorAll('.panier');
+
+    panier.forEach(items => {
+        items.addEventListener('click', () => {
+            if (arrayCart.length == 0) {
+                cartModal.innerHTML = 'Votre panier est vide.'
             } else {
                 let total = totalCalc(arrayCart);
-                cartModal.innerHTML='';
-                modalFooter.innerHTML='';
+                cartModal.innerHTML = '';
+                modalFooter.innerHTML = '';
                 const cartElemBuy = document.createElement('div');
-                    cartElemBuy.classList.add('acheter');
-                    modalFooter.appendChild(cartElemBuy);
-                    cartElemBuy.innerHTML = 'Acheter';
-    
-                    const cartElemDelete = document.createElement('div');
-                    cartElemDelete.classList.add('delete');
-                    modalFooter.appendChild(cartElemDelete);
-                    cartElemDelete.innerHTML = 'Supprimer';
-    
-                for(i=0; i < arrayCart.length ; i++){
+                cartElemBuy.classList.add('acheter');
+                modalFooter.appendChild(cartElemBuy);
+                cartElemBuy.innerHTML = 'Acheter';
+
+                const cartElemDelete = document.createElement('div');
+                cartElemDelete.classList.add('delete');
+                modalFooter.appendChild(cartElemDelete);
+                cartElemDelete.innerHTML = 'Supprimer';
+
+                for (i = 0; i < arrayCart.length; i++) {
                     const cartElem = document.createElement('div');
                     cartElem.classList.add('objectCart');
                     cartElem.id = i;
@@ -136,65 +138,67 @@ let displayProducts = (products) => {
                     cartElemPic.classList.add('imgCart');
                     cartElem.appendChild(cartElemPic);
                     cartElemPic.src = arrayCart[i].img;
-    
+
                     const cartElemName = document.createElement('div');
                     cartElemName.classList.add('elementName');
                     cartElem.appendChild(cartElemName);
                     cartElemName.innerHTML = arrayCart[i].name;
-                    
-    
+
+
                     const cartElemPrice = document.createElement('div');
                     cartElemPrice.classList.add('elementPrice');
                     cartElem.appendChild(cartElemPrice);
                     cartElemPrice.innerHTML = arrayCart[i].price + '€';
-    
-    
+
+
                     // tout supprimer panier
-    
+
                     const removeItem = document.createElement('div');
                     removeItem.classList.add('removeItem');
                     cartElem.appendChild(removeItem);
-                    removeItem.innerHTML= 'x'
-    
+                    removeItem.innerHTML = 'x'
+
                     const removeItemElem = document.querySelector('.delete')
                     removeItemElem.addEventListener('click', () => {
                         const index = arrayCart.indexOf(parseInt(cartElem.id))
-                        arrayCart.splice((index+1),1);
+                        arrayCart.splice((index + 1), 1);
                         cartElem.remove();
-                        document.querySelector('.total').innerHTML=''
+                        document.querySelector('.total').innerHTML = ''
                     })
-                    
+
                     //suppression d'un seul élément
                     removeItem.addEventListener('click', () => {
-                        arrayCart.splice((cartModal.children[parseInt(cartElem.id)].id),1)
-                        cartModal.children[(cartModal.children[parseInt(cartElem.id)].id)].innerHTML ='';
+                        arrayCart.splice((cartModal.children[parseInt(cartElem.id)].id), 1)
+                        cartModal.children[(cartModal.children[parseInt(cartElem.id)].id)].innerHTML = '';
                         total = totalCalc(arrayCart);
-                        if(arrayCart.length==0){
-                            document.querySelector('.total').innerHTML=''
-                        }else{
-                            document.querySelector('.total').innerHTML = 'Total : ' + total +'€'
+                        if (arrayCart.length == 0) {
+                            document.querySelector('.total').innerHTML = ''
+                        } else {
+                            document.querySelector('.total').innerHTML = 'Total : ' + total + '€'
                         }
-                        
+
                     })
                 }
-                    const totalPrice = document.createElement('div');
-                    totalPrice.classList.add('total');
-                    modalFooter.appendChild(totalPrice);
-                    totalPrice.innerHTML = 'Total : ' + total +'€'
+                const totalPrice = document.createElement('div');
+                totalPrice.classList.add('total');
+                modalFooter.appendChild(totalPrice);
+                totalPrice.innerHTML = 'Total : ' + total + '€'
             }
-                
-            modal.style.display='block';
-        })
 
-        // fermeture modal
-        close.addEventListener('click', () => {
-            modal.style.display='none';
+            modal.style.display = 'block';
         })
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+    })
+
+
+    // fermeture modal
+    close.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
+    }
 }
 
 let dropdown = document.getElementsByClassName("dropdown-btn");
@@ -230,7 +234,7 @@ async function fetchProducts(products) {
     const response = await fetch('assets/data/data.json')
     const data = await response.json()
     displayProducts(data.products)
-    
+
 }
 
 
@@ -238,19 +242,19 @@ async function fetchProducts(products) {
 const maleBox = document.getElementById('maleChoose');
 
 
-maleBox.addEventListener('change', function(event){
+maleBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
-    if(maleBox.checked){
+    if (maleBox.checked) {
         selectedItems.forEach(element => {
-            if(element.dataset.gender != "Male"){
-                element.style.display='none'
+            if (element.dataset.gender != "Male") {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
-            if(element.dataset.gender != "Male"){
-                element.style.display='flex'
+            if (element.dataset.gender != "Male") {
+                element.style.display = 'flex'
             }
         })
     }
@@ -260,19 +264,19 @@ maleBox.addEventListener('change', function(event){
 const femaleBox = document.getElementById('femaleChoose');
 
 
-femaleBox.addEventListener('change', function(event){
+femaleBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
-    if(femaleBox.checked){
+    if (femaleBox.checked) {
         selectedItems.forEach(element => {
-            if(element.dataset.gender != "Female"){
-                element.style.display='none'
+            if (element.dataset.gender != "Female") {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
-            if(element.dataset.gender != "Female"){
-                element.style.display='flex'
+            if (element.dataset.gender != "Female") {
+                element.style.display = 'flex'
             }
         })
     }
@@ -281,22 +285,22 @@ femaleBox.addEventListener('change', function(event){
 const whiteBox = document.getElementById('whiteChoose');
 
 
-whiteBox.addEventListener('change', function(event){
+whiteBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(whiteBox.checked){
+    if (whiteBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -305,22 +309,22 @@ whiteBox.addEventListener('change', function(event){
 const blueBox = document.getElementById('blueChoose');
 
 
-blueBox.addEventListener('change', function(event){
+blueBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(blueBox.checked){
+    if (blueBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -329,22 +333,22 @@ blueBox.addEventListener('change', function(event){
 const greyBox = document.getElementById('greyChoose');
 
 
-greyBox.addEventListener('change', function(event){
+greyBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(greyBox.checked){
+    if (greyBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -353,22 +357,22 @@ greyBox.addEventListener('change', function(event){
 const yellowBox = document.getElementById('yellowChoose');
 
 
-yellowBox.addEventListener('change', function(event){
+yellowBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(yellowBox.checked){
+    if (yellowBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -377,22 +381,22 @@ yellowBox.addEventListener('change', function(event){
 const brownBox = document.getElementById('brownChoose');
 
 
-brownBox.addEventListener('change', function(event){
+brownBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(brownBox.checked){
+    if (brownBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -402,22 +406,22 @@ brownBox.addEventListener('change', function(event){
 const blackBox = document.getElementById('blackChoose');
 
 
-blackBox.addEventListener('change', function(event){
+blackBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(blackBox.checked){
+    if (blackBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -427,22 +431,22 @@ blackBox.addEventListener('change', function(event){
 const orangeBox = document.getElementById('orangeChoose');
 
 
-orangeBox.addEventListener('change', function(event){
+orangeBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(orangeBox.checked){
+    if (orangeBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -452,22 +456,22 @@ orangeBox.addEventListener('change', function(event){
 const roseBox = document.getElementById('pinkChoose');
 
 
-roseBox.addEventListener('change', function(event){
+roseBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(roseBox.checked){
+    if (roseBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -478,22 +482,22 @@ roseBox.addEventListener('change', function(event){
 const redBox = document.getElementById('redChoose');
 
 
-redBox.addEventListener('change', function(event){
+redBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(redBox.checked){
+    if (redBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -503,22 +507,22 @@ redBox.addEventListener('change', function(event){
 const greenBox = document.getElementById('greenChoose');
 
 
-greenBox.addEventListener('change', function(event){
+greenBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(greenBox.checked){
+    if (greenBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
@@ -528,32 +532,32 @@ greenBox.addEventListener('change', function(event){
 const purpleBox = document.getElementById('purpleChoose');
 
 
-purpleBox.addEventListener('change', function(event){
+purpleBox.addEventListener('change', function (event) {
     let selectedItems = document.querySelectorAll('.product');
     let valueCheckbox = event.target.value;
-    if(purpleBox.checked){
+    if (purpleBox.checked) {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='none'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'none'
             }
         })
-        
+
     } else {
         selectedItems.forEach(element => {
             let data = (element.dataset.color).split(',');
-            if(!data.includes(valueCheckbox)){
-                element.style.display='flex'
+            if (!data.includes(valueCheckbox)) {
+                element.style.display = 'flex'
             }
         })
     }
 })
 
-document.querySelectorAll('a[href^="#"]').forEach(elem =>{
+document.querySelectorAll('a[href^="#"]').forEach(elem => {
     elem.addEventListener("click", e => {
         e.preventDefault();
         document.querySelector(elem.getAttribute('href')).scrollIntoView({
-            behavior:"smooth",
+            behavior: "smooth",
             offsetTop: 50
         });
     });
@@ -562,39 +566,39 @@ document.querySelectorAll('a[href^="#"]').forEach(elem =>{
 
 const everyday = document.querySelector('.everyday');
 
-everyday.addEventListener('click', ()=> {
+everyday.addEventListener('click', () => {
     let selectedItems = document.querySelectorAll('.product');
     selectedItems.forEach(element => {
-        if(parseInt(element.querySelector('.priceProduct').textContent) > 350){
-            element.style.display='none'
+        if (parseInt(element.querySelector('.priceProduct').textContent) > 350) {
+            element.style.display = 'none'
         } else {
-            element.style.display='flex'
+            element.style.display = 'flex'
         }
     })
 })
 
 const classy = document.querySelector('.classy');
 
-classy.addEventListener('click', ()=> {
+classy.addEventListener('click', () => {
     let selectedItems = document.querySelectorAll('.product');
     selectedItems.forEach(element => {
-        if(parseInt(element.querySelector('.priceProduct').textContent) > 800 || parseInt(element.querySelector('.priceProduct').textContent) <= 350 ){
-            element.style.display='none'
+        if (parseInt(element.querySelector('.priceProduct').textContent) > 800 || parseInt(element.querySelector('.priceProduct').textContent) <= 350) {
+            element.style.display = 'none'
         } else {
-            element.style.display='flex'
+            element.style.display = 'flex'
         }
     })
 })
 
 const luxe = document.querySelector('.luxe');
 
-luxe.addEventListener('click', ()=> {
+luxe.addEventListener('click', () => {
     let selectedItems = document.querySelectorAll('.product');
     selectedItems.forEach(element => {
-        if(parseInt(element.querySelector('.priceProduct').textContent) <= 800){
-            element.style.display='none'
+        if (parseInt(element.querySelector('.priceProduct').textContent) <= 800) {
+            element.style.display = 'none'
         } else {
-            element.style.display='flex'
+            element.style.display = 'flex'
         }
     })
 })
@@ -602,10 +606,10 @@ luxe.addEventListener('click', ()=> {
 
 const allShoes = document.querySelector('.allShoes');
 
-allShoes.addEventListener('click', ()=> {
+allShoes.addEventListener('click', () => {
     let selectedItems = document.querySelectorAll('.product');
 
     selectedItems.forEach(element => {
-        element.style.display='flex'
+        element.style.display = 'flex'
     })
 })

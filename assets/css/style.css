@@ -1,56 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
 
-:root{
+:root {
     font-size: 14px;
+    --typewriterSpeed: 6s;
+    --typewriterCharacters: 24;
 }
-*{
+
+* {
     margin: 0;
 }
 
-.carousel{
+.carousel {
     display: none;
+    background-color: #1B212D;
+    height: 93.5vh;
 }
 
-.carousel-item img{
-    object-fit:cover;
+.carousel-item img {
+    object-fit: cover;
     object-position: top center;
+
 }
 
-.carousel-inner{
-    height: 85vh;
+
+.carousel-inner {
+    padding-top: 3vh;
+    height: 85%;
     width: auto;
+    background-color: #1B212D;
 }
 
-.globe{
+.carousel-indicators {
+    bottom: 7vh;
+}
+
+.globe {
     display: flex;
     flex-direction: column;
 }
 
-#wrapper{
-    padding-top: 10vh;
+#wrapper {
+    padding-top: 2vh;
     padding-left: 1vw;
 }
 
 
+#panier {
+    font-size: 1.2rem;
+
+}
 
 
 
-
-.nameProduct{
+.nameProduct {
     font-size: 1.7em;
     font-weight: bold;
 }
 
-.descProduct{
+.descProduct {
     font-size: 1.3em;
 }
 
-.priceProduct{
+.priceProduct {
     font-size: 2.2em;
     font-weight: bold;
     width: 100%;
 }
-.container{
+
+.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -59,26 +76,41 @@
     margin: auto;
 }
 
-.product{
+.product {
     width: 45%;
-    min-height:450px;
+    min-height: 450px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.imgProduct{
+.imgProduct {
     width: 80%;
 }
 
-.buttonsDiv{
+.buttonsDiv {
     display: flex;
     flex-direction: column;
     justify-content: start;
 }
 
-.button{
+#filter {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-collapse {
+    background-color: #1B212D;
+}
+
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.button {
 
     color: black;
     transition: 0.25s;
@@ -93,18 +125,22 @@
     border-radius: 5px;
 }
 
-a:focus, a:active{
+a:focus,
+a:active {
     text-decoration: none;
     color: inherit;
 }
 
-.button:hover{
+.button:hover {
     transform: scale(1.2);
 
 }
-.button:focus { outline: none; }
 
-.buttonModal{
+.button:focus {
+    outline: none;
+}
+
+.buttonModal {
     margin-right: 1rem;
     border-radius: 15px;
     padding: 10px;
@@ -114,7 +150,7 @@ a:focus, a:active{
     transition: 0.25s;
 }
 
-.buttonModal:hover{
+.buttonModal:hover {
     background-color: #ec6449;
     border: #ec6449 solid 2px;
     color: black;
@@ -122,7 +158,7 @@ a:focus, a:active{
 
 }
 
-.modal2{
+.modal2 {
     display: none;
     position: fixed;
     z-index: 1;
@@ -132,13 +168,13 @@ a:focus, a:active{
     height: 100%;
 }
 
-.modal-content2{
+.modal-content2 {
     background-color: #ec6449;
     margin-top: 7.5vh;
     position: absolute;
     right: 0;
     width: 25%;
-    height:auto;
+    height: auto;
     overflow-y: auto;
     box-shadow: 0px 0px 10px black;
     overflow-x: hidden;
@@ -146,7 +182,7 @@ a:focus, a:active{
 
 
 
-.modal{
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -156,76 +192,79 @@ a:focus, a:active{
     height: 100%;
 }
 
-.modal-content{
+.modal-content {
     margin-top: 7.5vh;
     position: absolute;
     right: 0;
-    width: 25%;
-    height:auto;
+    width: 75%;
+    height: auto;
     overflow-y: auto;
     box-shadow: 0px 0px 10px black;
     overflow-x: hidden;
 
 }
 
-div.modal div.modal-content{
-    border-radius: 0px;
-}
 
-.modal-header{
+.modal-header {
     padding: 20px;
     font-size: 1.5rem;
     text-align: center;
     color: #F9D6AE;
     background-color: #1B212D;
 }
-.modal-body{
+
+.modal-body {
     overflow-y: initial;
     flex: 1 1 1;
 
 }
-.objectCart{
+
+.objectCart {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color:#fff;
+    background-color: #fff;
     text-align: center;
     padding-inline: 5%;
     height: fit-content;
 }
 
 
-.elementName{
+.elementName {
     font-size: 1.2rem;
     justify-content: start;
     width: 100%;
 }
 
-.total{
+.total {
     text-align: center;
     font-size: 1.5em;
     width: 100%;
     font-weight: bold;
     transition: 0.2s ease;
 }
-.total:hover{
+
+.total:hover {
     color: #ec6449;
     transform: scale(1.1);
     cursor: pointer;
 }
-.elementPrice{
+
+.elementPrice {
     font-size: 1.2rem;
     width: 100%;
     justify-content: start;
 }
-.imgCart{
+
+.imgCart {
     width: 10%;
     height: auto;
 }
-.modal-footer{
+
+.modal-footer {
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -235,33 +274,38 @@ div.modal div.modal-content{
     color: #F9D6AE;
 
 }
-.removeItem{
+
+.removeItem {
     cursor: pointer;
     font-weight: bold;
     font-size: 1.2em;
 }
-.delete{
+
+.delete {
     cursor: pointer;
     padding-right: 1em;
     transition: 0.1s ease;
     font-size: 1.4rem;
 }
 
-.delete:hover{
+.delete:hover {
     font-weight: bold;
     transform: scale(1.1);
 }
-.acheter{
+
+.acheter {
     cursor: pointer;
     padding-left: 1em;
     transition: 0.1s ease;
     font-size: 1.4rem;
 }
-.acheter:hover{
+
+.acheter:hover {
     font-weight: bold;
     transform: scale(1.1);
 }
-.close{
+
+.close {
     float: right;
     font-size: 2rem;
     font-weight: bold;
@@ -269,7 +313,7 @@ div.modal div.modal-content{
     transition: 0.2s ease;
 }
 
-.close:hover{
+.close:hover {
     text-decoration: none;
     cursor: pointer;
     transform: scale(1.1);
@@ -280,47 +324,72 @@ div.modal div.modal-content{
     font-family: "futura";
     src: url("/assets/Fonts/De-Futura.ttf");
 }
-html { 
+
+html {
 
     height: 1920px;
-    
+
 }
 
 
-header { 
+header {
     background-color: #1B212D;
     padding-top: 2em;
     padding-bottom: 2em;
 }
 
 
-.navbar { 
+.navbar {
     background-color: #1B212D;
     height: 7.5vh;
 }
 
+.nav-item {
+    padding-left: 4vw;
+}
 
 .navbar-brand {
-    color:  #F9D6AE;
+    color: #F9D6AE;
     font-size: medium;
 }
 
-.nav-link { 
-    color: white;
-    font-size: medium
-    
+
+
+#titleSite {
+    font-weight: bold;
+    transition: 200ms ease;
+    font-size: 1.75rem;
+    padding-left: 2vw;
 }
 
-.nav-link:focus { 
-    color: #ec6449;
-    
+#titleSite:focus {
+    color: #F9D6AE;
 }
+
+#titleSite:hover {
+    transform: scale(1.1);
+}
+
+.navMenu {
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    font-size: medium;
+    transition: 200ms ease;
+}
+
+.nav-link:focus {
+    color: #ec6449;
+}
+
 
 .centered {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: 'Futura-Normal', arial;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Futura-Normal', arial;
 
 }
 
@@ -332,43 +401,45 @@ header {
     color: white;
     border: 3px #F14B2A;
 }
+
 .fa-heart {
-    color: white; 
+    color: white;
 }
 
-.fa-heart:hover{
+.fa-heart:hover {
     text-decoration: none;
-    color:#F14B2A ;
+    color: #F14B2A;
 }
 
 .fa-shopping-cart {
-    color: white ; 
+    color: white;
 }
 
-.fa-shopping-cart:hover{
+.fa-shopping-cart:hover {
     text-decoration: none;
     color: #F14B2A;
 }
 
 .logo a:hover {
 
-    color:  #F9D6AE;
+    color: #F9D6AE;
 
 }
 
-.dropdown a:hover { 
-    color:#F14B2A; background:none; 
+.dropdown a:hover {
+    color: #F14B2A;
+    background: none;
 
-    
+
 }
 
 a {
-    
-    -o-transition:color .2s ease-out, background 1s ease-in;
-    -ms-transition:color .2s ease-out, background 1s ease-in;
-    -moz-transition:color b .2s ease-out, background 1s ease-in;
-    -webkit-transition:color .2s ease-out, background 1s ease-in;
-    transition:color .2s ease-out, background 1s ease-in;
+
+    -o-transition: color .2s ease-out, background 1s ease-in;
+    -ms-transition: color .2s ease-out, background 1s ease-in;
+    -moz-transition: color b .2s ease-out, background 1s ease-in;
+    -webkit-transition: color .2s ease-out, background 1s ease-in;
+    transition: color .2s ease-out, background 1s ease-in;
 }
 
 
@@ -390,35 +461,91 @@ img {
 
 
 @media screen and (min-width : 576px) {
-    .product{
-        width:30%;
+    .product {
+        width: 30%;
     }
-    .globe{
+
+    .globe {
         flex-direction: row;
     }
-    #wrapper{
+
+    #wrapper {
         width: 20%;
-        padding-left: 3vw;
+        padding-left: 1vw;
         padding-top: 10%;
     }
-    .container{
+
+    #filter {
+        display: flex;
+        justify-content: start;
+    }
+
+    .container {
         width: 90%;
         margin: auto;
     }
+
+    .container-fluid {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+    .navbar-collapse {
+        flex: 0;
+    }
+
+    .modal-content {
+        margin-top: 7.5vh;
+        position: absolute;
+        right: 0;
+        width: 25%;
+        height: auto;
+        overflow-y: auto;
+        box-shadow: 0px 0px 10px black;
+        overflow-x: hidden;
+
+    }
+    .container-fluid {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+    .navMenu{
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-link:focus {
+        color: #ec6449;
+        transform: scale(1.1);
+    }
+    
+    .nav-link:hover {
+        transform: scale(1.1);
+    }
+    .nav-item{
+        padding-left: 0;
+        text-align: center;
+        margin-right: 6vh;
+    }
+    .nav-link{
+        font-size: 1.5rem;
+    }
+
+    #titleSite{
+        padding-left: 0;
+    }
+
 }
 
 @media screen and (min-width : 992px) {
-    .product{
-        width:25%;
+    .product {
+        width: 25%;
     }
-    .container{
+
+    .container {
         padding-left: 5%;
     }
-    .carousel{
+
+    .carousel {
         display: block;
-    }
-    header{
-        height: 100vh;
     }
 }
 
@@ -447,7 +574,7 @@ img {
     text-align: left;
     cursor: pointer;
     outline: none;
-    margin:0em;
+    margin: 0em;
 }
 
 /* Main content */
@@ -473,8 +600,17 @@ img {
 }
 
 /* //////////////////////////////////////////////// */
-h4:hover { color:#FF3000; } 
-h3:hover { color:#FF3000; } 
+h4:hover {
+    color: #FF3000;
+}
+
+.filters:hover {
+    color: #FF3000;
+}
+
+.filters {
+    color: black;
+}
 
 li {
     list-style-type: none;
@@ -484,7 +620,6 @@ li {
     width: 100%;
     vertical-align: middle;
     list-style-type: none;
-    border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
 
 ul {
@@ -493,3 +628,22 @@ ul {
     display: inline-block;
 
 }
+
+.welcome {
+    font-family: "Montserrat";
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vh;
+    letter-spacing: 1px;
+    padding-top: 8vh;
+}
+
+.heading{
+    font-size: 2.5rem;
+    color: rgb(249, 214, 174);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
