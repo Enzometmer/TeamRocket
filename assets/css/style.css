@@ -23,12 +23,18 @@
 
 .globe{
     display: flex;
+    flex-direction: column;
 }
 
 #wrapper{
     padding-top: 10vh;
     padding-left: 1vw;
 }
+
+
+
+
+
 
 .nameProduct{
     font-size: 1.7em;
@@ -305,6 +311,11 @@ header {
     
 }
 
+.nav-link:focus { 
+    color: #ec6449;
+    
+}
+
 .centered {
         position: absolute;
         left: 50%;
@@ -381,6 +392,18 @@ img {
 @media screen and (min-width : 576px) {
     .product{
         width:30%;
+    }
+    .globe{
+        flex-direction: row;
+    }
+    #wrapper{
+        width: 20%;
+        padding-left: 3vw;
+        padding-top: 10%;
+    }
+    .container{
+        width: 90%;
+        margin: auto;
     }
 }
 
